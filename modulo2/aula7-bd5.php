@@ -25,7 +25,6 @@
         	// conexão ao banco de dados
         	$conexao = new PDO("mysql:host=$host;port=$porta;dbname=$banco",$usuario,$senha);
         	
-
             // Inserir no banco de dados
             if(isset($_GET["nome"])){
 
@@ -39,8 +38,6 @@
                 $consulta->execute();
 
             }
-
-
 
             // seleção de dados na tabela notas
         	$sql = "SELECT id,nome,nota FROM notas";

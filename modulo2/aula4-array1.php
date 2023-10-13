@@ -17,7 +17,6 @@
                 echo "<br>";
             }
 
-
             $array2 = ["olá", "mundo", "cruel"];
             print_r($array2);
             echo "<br>";

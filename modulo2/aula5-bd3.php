@@ -24,7 +24,6 @@
         	$resultados = $consulta->fetchALL(PDO::FETCH_ASSOC);
         	// exibir o resultado da consulta
         	//print_r($resultados);
-            
 
             echo "<ul>";
             foreach($resultados as $cadastro){

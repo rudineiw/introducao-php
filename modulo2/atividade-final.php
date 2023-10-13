@@ -27,7 +27,8 @@
         	$senha = "";
         	$banco = "aulaphp";
         	$porta = 3306;
-        	// conexão ao banco de dados
+        	
+            // conexão ao banco de dados
         	$conexao = new PDO("mysql:host=$host;port=$porta;dbname=$banco",$usuario,$senha);
 
             // Inserir no banco de dados
@@ -64,11 +65,12 @@
         	$sql = "SELECT id,nome,nivel,aulas,horas FROM cursos";
         	$consulta = $conexao->prepare($sql);
         	$consulta->execute();
-        	// capturar os resultados da consulta
+        	
+            // capturar os resultados da consulta
         	$resultados = $consulta->fetchALL(PDO::FETCH_ASSOC);
-        	// exibir o resultado da consulta
+        	
+            // exibir o resultado da consulta
         	//print_r($resultados);
-
             echo "<table border=1><tr><th>ID</th><th>Nome</th><th>Nível</th><th>Aulas</th><th>Horas</th><th>Ação</th></tr>";
             foreach($resultados as $cadastro){
                 $id = $cadastro["id"];

@@ -17,7 +17,6 @@
         	// conexão ao banco de dados
         	$conexao = new PDO("mysql:host=$host;port=$porta;dbname=$banco",$usuario,$senha);
         	
-
             // Inserir no banco de dados
             $nome = "Paulo";
             $nota = 7;
@@ -27,9 +26,6 @@
             $consulta->bindParam(":nome",$nome);
             $consulta->bindParam(":nota",$nota);
             $consulta->execute();
-
-
-
 
             // seleção de dados na tabela notas
         	$sql = "SELECT id,nome,nota FROM notas";
