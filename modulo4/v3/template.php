@@ -22,8 +22,7 @@
 				<th>Nota</th>
 				<th>Ação</th>
 			</tr>
-			<?php
-				foreach($arrayCadastro as $i => $cadastro) { ?>
+			<?php foreach($arrayCadastro as $i => $cadastro) { ?>
 				<tr>
 					<td><?=$i?></td>
 					<td><?=$cadastro['nome']?></td>
