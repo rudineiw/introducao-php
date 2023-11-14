@@ -19,27 +19,52 @@
 			<button name="acao" value="exibe">Exibe nome</button>
 		</form>
 		<?php
+
+			class Memoria {
+				public $chave;
+
+				public function __construct($chave) {
+					$this->chave = $chave;
+				}
+
+				public function salvaDado($dado){
+					if(!isset($_SESSION[$this->chave])){
+						$_SESSION[$this->chave] = array();
+					}
+					$_SESSION[$this->chave][] = $dado;
+				}
+
+				public function leDado(){
+					if(!isset($_SESSION[$this->chave])){
+						return array();
+					}
+					return $_SESSION[$this->chave];
+				}
+
+			}
+
 			function recebe($par){
 				if (isset($_GET[$par])) return $_GET[$par];
 				if (isset($_POST[$par])) return $_POST[$par];
 				return "";
 			}
 
-			$campo = "Aula_" . recebe("selecao");
-			//echo "O valor que vou usar como chave é $campo";
 
 			session_start();
 
+			$memoria1 = new Memoria("memoria1");
+
 			if (recebe("acao") == "salva") {
-				$_SESSION[$campo] = recebe("nome");
-				echo "Estou salvando em $campo";
+				$nome = recebe("nome");
+				$memoria1->salvaDado($nome);
+				echo "Estou salvando um novo dado";
 
 			} else if (recebe("acao") == "exibe") {
-				if (isset($_SESSION[$campo]))
-					$nome = $_SESSION[$campo];
-					echo "O nome salvo em $campo é $nome";
+				$retorno = $memoria1->leDado();
+				foreach($retorno AS $dado){
+					echo $dado . ",";
+				}
 			}
-		
 		?>
 	</body>
 </html>

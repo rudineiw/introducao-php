@@ -25,21 +25,35 @@
 				return "";
 			}
 
-			$campo = "Aula_" . recebe("selecao");
-			//echo "O valor que vou usar como chave é $campo";
+			function salvaDado($chave,$dado){
+				if(!isset($_SESSION[$chave])){
+					$_SESSION[$chave] = array();
+				}
+				$_SESSION[$chave][] = $dado;
+			}
+
+			function leDado($chave){
+				if(!isset($_SESSION[$chave])){
+					return array();
+				}
+				return $_SESSION[$chave];
+			}			
 
 			session_start();
 
+			$campo = "memória";
+
 			if (recebe("acao") == "salva") {
-				$_SESSION[$campo] = recebe("nome");
-				echo "Estou salvando em $campo";
+				$nome = recebe("nome");
+				salvaDado($campo,$nome);
+				echo "Estou salvando um novo dado";
 
 			} else if (recebe("acao") == "exibe") {
-				if (isset($_SESSION[$campo]))
-					$nome = $_SESSION[$campo];
-					echo "O nome salvo em $campo é $nome";
+				$retorno = leDado($campo);
+				foreach($retorno AS $dado){
+					echo $dado . ",";
+				}
 			}
-		
 		?>
 	</body>
 </html>
