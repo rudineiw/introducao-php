@@ -29,7 +29,7 @@
 					<td><?=$cadastro['nome']?></td>
 					<td><?=$cadastro['nota']?></td>
 					<td><a href="?acao=Remover&id=<?=$cadastro['id']?>">Remover</a></td>
-					<td><a href="?acao=Consultar&id=<?=$cadastro['id']?>">Consultar</a></td>
+					<td><a href="?acao=Alterar&id=<?=$cadastro['id']?>">Alterar</a></td>
 				</tr>
 			<?php } ?>
 		</table>

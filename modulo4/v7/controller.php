@@ -26,7 +26,7 @@ if ( testePar('acao','Cadastrar') ) {
 	removeDados( recebePar('id') ); // remove dados
 } else if ( testePar('acao','Editar') ) {
 	editaDados( recebePar('id'), recebePar('nome'), recebePar('nota') ); // editar dados
-} else if ( testePar('acao','Consultar') ){
+} else if ( testePar('acao','Alterar') ){
 	$dados = obterDadosId( recebePar('id') ); // exibir dados
 	$id = $dados[0]['id'];
 	$nome = $dados[0]['nome'];

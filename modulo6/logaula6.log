@@ -1,0 +1,8 @@
+[2023-12-07T00:47:03.833123+01:00] meu_log.DEBUG: Nível DEBUG - Mensagem de depuração com informações detalhadas [] []
+[2023-12-07T00:47:03.834602+01:00] meu_log.INFO: Nível INFO - Mensagem informativa indicando eventos normais ou marcos importantes [] []
+[2023-12-07T00:47:03.834655+01:00] meu_log.NOTICE: Nível NOTICE - Mensagem indicando eventos normais, mais notáveis [] []
+[2023-12-07T00:47:03.834686+01:00] meu_log.WARNING: Nível WARNING - Mensagem de aviso indicando situações que precisam ser observadas [] []
+[2023-12-07T00:47:03.834711+01:00] meu_log.ERROR: Nível ERROR - Mensagem de erro que afetou a funcionalidade do aplicativo [] []
+[2023-12-07T00:47:03.834735+01:00] meu_log.CRITICAL: Nível CRITICAL - Mensagem de erro crítico exigindo intervenção imediata [] []
+[2023-12-07T00:47:03.834844+01:00] meu_log.ALERT: Nível ALERT - Mensagem que requer ação imediata [] []
+[2023-12-07T00:47:03.834887+01:00] meu_log.EMERGENCY: Nível EMERGENCY - Mensagem de emergência indicando um estádo crítico que requer intervenção imediata [] []

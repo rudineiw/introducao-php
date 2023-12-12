@@ -93,7 +93,7 @@
 			}
 
 			session_start();
-			$memoria1 = new Memoria("desafio2");
+			$memoria1 = new Memoria("desafioaula10");
 
 			if (recebe("acao") == "salva") {
 				$nome = recebe("nome");
@@ -138,7 +138,6 @@
 			}
 
 		?>
-	<hr>
 
 	</body>
 </html>
