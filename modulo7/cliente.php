@@ -7,13 +7,15 @@
 </head>
 <body>
 	<form>
-		<br>
+		<input type="hidden" name="id" value="<?=$id?>">
 		Nome <input name="nome" value="<?=$nome?>">
 		<br>
 		E-mail: <input name="email"value="<?=$email?>">
 		<br>
-		<button name="acao" value="Cadastrar">Cadastrar</button>
+		<button name="acao" value="<?=$acao?>"><?=$acao?></button>
 	</form>
+
+	<h1>Clientes cadastrados</h1>
 
 	<table border="1">
 		<thead>

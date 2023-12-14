@@ -35,7 +35,7 @@ class Model {
 		return $stmt->fetchALL(PDO::FETCH_ASSOC);
 	}
 
-	public function obterDadosCliente($id) {
+	public function dadosCliente($id) {
 		$sql = "SELECT id,nome,email FROM clientes WHERE id=:id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute([':id'=>$id]);
@@ -46,6 +46,18 @@ class Model {
 		$sql = "INSERT INTO clientes (nome, email) VALUES (:nome, :email)";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute([':nome'=>$nome, ':email'=>$email]);
+	}
+
+	public function editarCliente($id, $nome, $email) {
+		$sql = "UPDATE clientes SET nome=:nome, email=:email WHERE id=:id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([':id'=>$id, ':nome'=>$nome, ':email'=>$email]);
+	}
+
+	public function removeCliente($id) {
+		$sql = "DELETE FROM clientes WHERE id=:id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([':id'=>$id]);
 	}
 
 	public function __destruct() {
