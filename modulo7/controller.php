@@ -4,9 +4,9 @@ function clientes() {
 	$model = new Model();
 
 	if (recebePar('acao') == 'Cadastrar'){
-		$dadosCliente = $model->incluirCliente(recebePar('nome'),recebePar('email'));
+		$dadosCliente = $model->cadastrarCliente(recebePar('nome'),recebePar('email'));
 	} else if ( testePar('acao','Remover') ) {
-		$dadosCliente = $model->removeCliente(recebePar('id')); // remove dados
+		$dadosCliente = $model->removerCliente(recebePar('id')); // remove dados
 	} else if ( testePar('acao','Editar') ) {
 		$dadosCliente = $model->editarCliente(recebePar('id'), recebePar('nome'), recebePar('email') ); // editar dados
 	} else if ( testePar('acao','Alterar') ){
@@ -17,22 +17,30 @@ function clientes() {
 
 	$dados = $model->listarClientes();
 
-	render('cliente.php', $dados, $dadosCliente);
+	renderCliente('cliente.php', $dados, $dadosCliente);
 }
 
 function produtos() {
 	$model = new Model();
 	
 	if (recebePar('acao') == 'Cadastrar'){
-		$model->incluirProduto(recebePar('nome'),recebePar('valor'));
+		$dadosProduto = $model->cadastrarProduto(recebePar('nome'),recebePar('valor'));
+	} else if ( testePar('acao','Remover') ) {
+		$dadosProduto = $model->removerProduto(recebePar('id')); // remove dados
+	} else if ( testePar('acao','Editar') ) {
+		$dadosProduto = $model->editarProduto(recebePar('id'), recebePar('nome'), recebePar('valor') ); // editar dados
+	} else if ( testePar('acao','Alterar') ){
+		$dadosProduto = $model->dadosProduto(recebePar('id')); // exibir dados
+	} else {
+		$dadosProduto = '';
 	}
 
 	$dados = $model->listarProdutos();
 
-	render('produto.php', $dados);
+	renderProduto('produto.php', $dados, $dadosProduto);
 }
 
-function render($template, $dados, $dadosCliente) {
+function renderCliente($template, $dados, $dadosCliente) {
 	$arrayCadastro = $dados;
 	
 	if (!empty($dadosCliente)) {
@@ -44,6 +52,24 @@ function render($template, $dados, $dadosCliente) {
 		$id = '';
 		$nome = '';
 		$email = '';
+		$acao = 'Cadastrar';
+	}
+	
+	include $template;
+}
+
+function renderProduto($template, $dados, $dadosProduto) {
+	$arrayCadastro = $dados;
+	
+	if (!empty($dadosProduto)) {
+		$id = $dadosProduto[0]['id'];
+		$nome = $dadosProduto[0]['nome'];
+		$valor = $dadosProduto[0]['valor'];
+		$acao = "Editar";
+	} else {
+		$id = '';
+		$nome = '';
+		$valor = '';
 		$acao = 'Cadastrar';
 	}
 	

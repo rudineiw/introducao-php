@@ -3,14 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cliente</title>
+	<title>Clientes</title>
 </head>
 <body>
+
+	<p><a href="./produtos">Produtos</a></p>
+
 	<form>
 		<input type="hidden" name="id" value="<?=$id?>">
 		Nome <input name="nome" value="<?=$nome?>">
 		<br>
-		E-mail: <input name="email"value="<?=$email?>">
+		E-mail: <input name="email" value="<?=$email?>">
 		<br>
 		<button name="acao" value="<?=$acao?>"><?=$acao?></button>
 	</form>

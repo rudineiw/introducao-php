@@ -3,16 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Produto</title>
+	<title>Produtos</title>
 </head>
 <body>
+
+	<p><a href="./clientes">Clientes</a></p>
+
 	<form>
-		Nome <input name="nome">
+		<input type="hidden" name="id" value="<?=$id?>">
+		Nome <input name="nome" value="<?=$nome?>">
 		<br>
-		Valor: <input name="valor">
+		Valor: <input name="valor" value="<?=$valor?>">
 		<br>
-		<button name="acao" value="Cadastrar">Cadastrar</button>
+		<button name="acao" value="<?=$acao?>"><?=$acao?></button>
 	</form>
+
+	<h1>Produtos cadastrados</h1>
 
 	<table border="1">
 		<thead>
@@ -20,6 +26,7 @@
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Valor</th>
+				<th colspan="2">Ação</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +37,8 @@
 				<td><?=$cadastro['id']?></td>
 				<td><?=$cadastro['nome']?></td>
 				<td><?=$cadastro['valor']?></td>
+				<td><a href="?acao=Remover&id=<?=$cadastro['id']?>">Remover</a></td>
+				<td><a href="?acao=Alterar&id=<?=$cadastro['id']?>">Alterar</a></td>
 			</tr>
 			<?php
 				}

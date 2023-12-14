@@ -17,18 +17,39 @@ class Model {
 
 	}
 
+	// Produtos
 	public function listarProdutos() {
 		$sql = "SELECT * FROM produtos";
 		$stmt = $this->pdo->query($sql);
 		return $stmt->fetchALL(PDO::FETCH_ASSOC);
 	}
 
-	public function incluirProduto($nome, $valor) {
+	public function dadosProduto($id) {
+		$sql = "SELECT id,nome,valor FROM produtos WHERE id=:id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([':id'=>$id]);
+		return $stmt->fetchALL(PDO::FETCH_ASSOC);
+	}
+
+	public function cadastrarProduto($nome, $valor) {
 		$sql = "INSERT INTO produtos (nome, valor) VALUES (:nome, :valor)";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute([':nome'=>$nome, ':valor'=>$valor]);
 	}
 
+	public function editarProduto($id, $nome, $valor) {
+		$sql = "UPDATE produtos SET nome=:nome, valor=:valor WHERE id=:id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([':id'=>$id, ':nome'=>$nome, ':valor'=>$valor]);
+	}
+
+	public function removerProduto($id) {
+		$sql = "DELETE FROM produtos WHERE id=:id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([':id'=>$id]);
+	}
+
+	// Clientes
 	public function listarClientes() {
 		$sql = "SELECT * FROM clientes";
 		$stmt = $this->pdo->query($sql);
@@ -42,7 +63,7 @@ class Model {
 		return $stmt->fetchALL(PDO::FETCH_ASSOC);
 	}
 
-	public function incluirCliente($nome, $email) {
+	public function cadastrarCliente($nome, $email) {
 		$sql = "INSERT INTO clientes (nome, email) VALUES (:nome, :email)";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute([':nome'=>$nome, ':email'=>$email]);
@@ -54,7 +75,7 @@ class Model {
 		$stmt->execute([':id'=>$id, ':nome'=>$nome, ':email'=>$email]);
 	}
 
-	public function removeCliente($id) {
+	public function removerCliente($id) {
 		$sql = "DELETE FROM clientes WHERE id=:id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute([':id'=>$id]);
