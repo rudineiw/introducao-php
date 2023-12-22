@@ -5,27 +5,28 @@
 [Introdução ao PHP - Gerando HTML com PHP](modulo1/)
 
 ## Módulo 2
-Introdução ao PHP - Lendo e Inserindo dados no Banco de Dados
+[Introdução ao PHP - Lendo e Inserindo dados no Banco de Dados](modulo2/)
 
 ## Módulo 3
-PHP Básico - Lógica de Programação
+[PHP Básico - Lógica de Programação](modulo3/)
 
 ## Módulo 4
-PHP Básico - CRUD mínimo em PHP com MVC
+[PHP Básico - CRUD mínimo em PHP com MVC](modulo4/)
 
 ## Módulo 5
-PHP Básico - Sessões e Introdução a Orientação a Objetos
+[PHP Básico - Sessões e Introdução a Orientação a Objetos](modulo5/)
 
 ## Módulo 6
-Composer e Bibliotecas PHP
+[Composer e Bibliotecas PHP](modulo6/)
 
 ## Módulo 7
-PHP Básico - Criando Rotas e um CRUD em PHP
+[PHP Básico - Criando Rotas e um CRUD em PHP](modulo7/)
 
 ## Módulo 8
-PHP Básico - Construindo um Sistema de Autenticação
+[PHP Básico - Construindo um Sistema de Autenticação](modulo8/)
 
 ## Projeto Final +praTi PHP
+Desenvolvendo...
 
 ## Extras
 - Instalando servidores web e banco de dados
